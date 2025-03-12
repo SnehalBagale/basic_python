@@ -12,7 +12,7 @@ Then the missing number is 4.
 """
 
 
-
+# 1st Approch
 
 def find_missing_number(n, arr):
     total_sum = n * (n + 1) // 2 
@@ -23,3 +23,21 @@ arr = list(map(int, input(f"Enter {n-1} numbers separated by space: ").split()))
 
 missing_number = find_missing_number(n, arr)
 print(f"The missing number is: {missing_number}")
+
+
+
+# 2nd Approch
+
+num=int(input("Enter The Number of elements:"))
+arr=[]
+for i in range(num-1):
+    ele = int(input(f"Enter {i+1}th element: "))
+    arr.append(ele)
+
+for i in range(num-1):
+    if arr[i] != i+1:
+        missingNo=i+1
+        break
+    else:
+        missingNo=num
+print("Missing number is:",missingNo)
