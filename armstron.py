@@ -54,26 +54,14 @@ END FUNCTION
 # Armstrong number python program
 
 # Define a function named count_digits that will accept a number and return the number of digits.
-def count_digits(num):
-  if num == 0:
-    return 1
-  count = 0
-  while num > 0:
-    num = num // 10   # integer division
-    count +=1
-  return count
+def is_armstrong(n):
+    num_str = str(n)
+    num_digits = len(num_str)
+    armstrong_sum = sum(int(digit) ** num_digits for digit in num_str)
+    return armstrong_sum == n
 
-def is_armstrong(num):
-  num_digits = count_digits(num)
-  temp = num
-  sum = 0
-
-  while temp > 0:
-    digit = num % 10
-    sum = sum + (digit ** num_digits)
-    temp = temp // 10
-
-  return sum == num
-
-num = 153
-print(is_armstrong(num))
+num = int(input("Enter a number: "))
+if is_armstrong(num):
+    print("Output:", num, "is an Armstrong number")
+else:
+    print("Output:", num, "is not an Armstrong number")
